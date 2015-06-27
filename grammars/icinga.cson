@@ -1,0 +1,19 @@
+'scopeName': 'source.icinga2'
+'name': 'Icinga2'
+'fileTypes': [
+  'conf'
+]
+'patterns': [
+  {
+    'match': '\\+\\=|-\\=|\\*\\=|/\\=|//\\=|%\\=|&\\=|\\|\\=|\\^\\=|>>\\=|<<\\=|\\*\\*\\='
+    'name': 'keyword.operator.assignment.augmented.icinga2'
+  }
+  {
+    'match': '\\+|\\-|\\*|\\*\\*|/|//|%|<<|>>|&|\\||\\^|~'
+    'name': 'keyword.operator.arithmetic.icinga2'
+  }
+  {
+    'match': 'object|apply'
+    'name': 'storage.type.function.icinga2'
+  }
+]

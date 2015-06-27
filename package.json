@@ -1,0 +1,19 @@
+{
+  "name": "language-icinga2",
+  "version": "0.0.1",
+  "description": "Icinga2 syntax highlighting",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "language-icinga2:toggle"
+  },
+  "repository": "https://github.com/atom/language-icinga2",
+  "license": "MIT",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "dependencies": {
+    "coffeelint": "^1.10.1"
+  }
+}
