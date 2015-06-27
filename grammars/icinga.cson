@@ -4,16 +4,171 @@
   'conf'
 ]
 'patterns': [
+  #TODO: add units and object methods
+  #TODO: object methods: .to_string .find .contains  .len .lower .upper .replace .split .substr .add .clear .clone .contains .len .remove .set .remove .sort .join .clone .call .callv
+  #TODO: Check documentation tosee if anything was missed
   {
-    'match': '\\+\\=|-\\=|\\*\\=|/\\=|//\\=|%\\=|&\\=|\\|\\=|\\^\\=|>>\\=|<<\\=|\\*\\*\\='
+    'begin': '/\\*'
+    'captures':
+      '0':
+        'name': 'punctuation.definition.comment.icinga2'
+    'end': '\\*/'
+    'name': 'comment.block.icinga2'
+  }
+  {
+    'begin': '(^[ \\t]+)?(?=//)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.icinga2'
+    'end': '(?!\\G)'
+    'patterns': [
+      {
+        'begin': '//'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.icinga2'
+        'end': '\\n|(?=\\?>)'
+        'name': 'comment.line.double-slash.icinga2'
+      }
+    ]
+  }
+  {
+    'begin': '(^[ \\t]+)?(?=#)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.icinga2'
+    'end': '(?!\\G)'
+    'patterns': [
+      {
+        'begin': '#'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.icinga2'
+        'end': '\\n|(?=\\?>)'
+        'name': 'comment.line.number-sign.icinga2'
+      }
+    ]
+  }
+  {
+    'match': '\\b(get_host_group|get_service_group|get_user_group|get_time_period|get_host|get_service|get_user|get_check_command|get_event_command|get_notification_command|macro|number|bool|random|log|typeof|get_time|exit|regex|match|len|union|intersection|keys|string)\\b'
+    'name': 'support.class.builtin.icinga2'
+  }
+  {
+    'match': '\\b(PrefixDir|SysconfDir|ZonesDir|LocalStateDir|RunDir|PkgDataDir|StatePath|ObjectsPath|PidPath|NodeName|ApplicationType|EnableNotifications|EnableEventHandlers|EnableFlapping|EnableHostChecks|EnableServiceChecks|EnablePerfdata|UseVfork|RunAsUser|RunAsGroup|PluginDir|Problem|Recovery|OK|Warning|Critical|Unknown|Acknowledgement|Custom|FlappingStart|FlappingEnd|DowntimeStart|DowntimeEnd|DowntimeRemoved|Up|Down)\\b'
+    'name': 'support.constant.std.icinga2'
+  }
+  {
+    'match': 'Vars[ \\t]+'
+    'name': 'support.constant.std.icinga2'
+  }
+  {
+    'match': '\\b(Math\\\.E|Math\\\.LN2|Math\\\.LN10|Math\\\.LOG2E|Math\\\.PI|Math\\\.SQRT1_2|Math\\\.SQRT2|Math\\\.abs|Math\\\.acos|Math\\\.asin|Math\\\.atan|Math\\\.atan2|Math\\\.ceil|Math\\\.cos|Math\\\.exp|Math\\\.floor|Math\\\.isinf|Math\\\.isnan|Math\\\.log|Math\\\.max|Math\\\.min|Math\\\.pow|Math\\\.random|Math\\\.round|Math\\\.sign|Math\\\.sin|Math\\\.sqrt|Math\\\.tan|Json\\\.encode|Json\\\.decode)\\b'
+    'name': 'support.function.builtin.icinga2'
+  }
+  {
+    'match': '(assign\[ \\t\]+where|ignore\[ \\t\]+where)'
+    'name': 'support.constant.parser-token.icinga2'
+  }
+  {
+    'match': '\\b(if|else|while|for|break|continue)\\b'
+    'name': 'support.constant.parser-token.icinga2'
+  }
+  {
+    'match':'true|false|null'
+    'name': 'constant.language.icinga2'
+  }
+  {
+    'match': '\\<\\=|\\>\\=|\\=\\=|\\<|\\>|\\!\\='
+    'name': 'keyword.operator.comparison.icinga2'
+  }
+  {
+    'match': '/\\=|\\*\\=|\\-\\=|\\+\\=|\\=\\>|\\='
     'name': 'keyword.operator.assignment.augmented.icinga2'
   }
   {
-    'match': '\\+|\\-|\\*|\\*\\*|/|//|%|<<|>>|&|\\||\\^|~'
+    'match': '\\+|\\-|\\*|/|//|>>|<<|\\^|&|~|%|\\|'
     'name': 'keyword.operator.arithmetic.icinga2'
   }
   {
-    'match': 'object|apply'
+    'match': 'in|\\|\\||&&|\\!'
+    'name': 'keyword.operator.logical.icinga2'
+  }
+  {
+    'match': '\\='
+    'name': 'keyword.operator.assignment.icinga2'
+  }
+  #TODO Fix ignore case
+  #TODO Break these out to proper assignment
+  {
+    'match': '(?i)\\b(object|apply|template)\\b[ \t]+\\b(hostgroup|host|servicegroup|service|usergroup|user|checkcommand|notificationcommand|eventcommand|notification|timeperiod|scheduleddowntime|dependency|perfdatawriter|graphitewriter|idomysqlconnection|idopgsqlconnection|livestatuslistener|statusdatawriter|externalcommandlistener|compatlogger|checkresultreader|checkcomponent|notificationcomponent|filelogger|sysloglogger|icingastatuswriter|apilistener|endpoint|zone)\\b'
     'name': 'storage.type.function.icinga2'
+  }
+  {
+    'match': '\\b(const|import|include|include_recursive|var|function|return|to|use|locals|globals|this)\\b'
+    'name': 'keyword.control.icinga2'
+  }
+  {
+    'match': '\\b(accept_commands|accept_config|action_url|address|address6|arguments|author|bind_host|bind_port|ca_path|categories|cert_path|check_command|check_interval|check_period|child_host_name|child_service_name|cleanup|command|command_endpoint|command_path|comment|compat_log_path|crl_path|database|disable_checks|disable_notifications|display_name|duration|email|enable_active_checks|enable_event_handler|enable_flapping|enable_ha|enable_notifications|enable_passive_checks|enable_perfdata|endpoints|env|event_command|failover_timeout|fixed|flapping_threshold|groups|host|host_format_template|host_name|host_name_template|host_perfdata_path|host_temp_path|icon_image|icon_image_alt|instance_description|instance_name|interval|key_path|log_dir|log_duration|max_check_attempts|methods|name|notes|notes_url|objects_path|pager|parent|parent_host_name|parent_service_name|password|path|period|port|ranges|retry_interval|rotation_interval|rotation_method|service|service_format_template|service_name|service_name_template|service_perfdata_path|service_temp_path|severity|socket_path|socket_type|spool_dir|states|status_path|table_prefix|timeout|times|types|update_interval|user|user_groups|users|volatile|zone)\\b'
+    'name': 'support.class.builtin.icinga2'
+  }
+  {
+    'match': '\\\$\[\\w\\\.\]+?\\\$'
+    'name': 'punctuation.definition.variable.icinga2'
+  }
+  {
+    'match': '\\b(vars\\\.\\w+)\\b'
+    'name': 'punctuation.definition.variable.icinga2'
+  }
+  {
+    'match': 'import'
+    'name': 'keyword.control.import.include.icinga2'
+  }
+  {
+    'match': '\\\<\[\\w\\\.\]+?\\\>'
+    'name': 'string.quoted.double.icinga2'
+  }
+  {
+    'match': '\\{|\\('
+    'name': 'punctuation.section.scope.begin.icinga2'
+  }
+  {
+    'match': '\\}|\\)'
+    'name': 'punctuation.section.scope.end.icinga2'
+  }
+  {
+    'begin': '"'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.string.begin.icinga2'
+    'contentName': 'meta.string-contents.quoted.double.icinga2'
+    'end': '"'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.string.end.icinga2'
+    'name': 'string.quoted.double.icinga2'
+    'patterns': [
+      {
+        'match': '\\$\[\\w\\\.\]+?\\\$'
+        'name': 'punctuation.definition.variable.icinga2'
+      }
+    ]
+  }
+  {
+    'begin': '\''
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.definition.string.begin.icinga2'
+    'contentName': 'meta.string-contents.quoted.single.icinga2'
+    'end': '\''
+    'endCaptures':
+      '0':
+        'name': 'punctuation.definition.string.end.icinga2'
+    'name': 'string.quoted.double.icinga2'
+    'patterns': [
+      {
+        'match': '\\$\[\\w\\\.\]+?\\\$'
+        'name': 'punctuation.definition.variable.icinga2'
+      }
+    ]
   }
 ]

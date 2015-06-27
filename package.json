@@ -1,14 +1,13 @@
 {
   "name": "language-icinga2",
   "version": "0.0.1",
+  "author": "Malcolm <i.am.malcolm@gmail.com>",
   "description": "Icinga2 syntax highlighting",
-  "keywords": [
-  ],
-  "activationCommands": {
-    "atom-workspace": "language-icinga2:toggle"
-  },
-  "repository": "https://github.com/atom/language-icinga2",
+  "repository": "https://github.com/Malcolm/language-icinga2",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Malcolm/language-icinga2/issues"
+  },
   "engines": {
     "atom": "*",
     "node": "*"
