@@ -97,6 +97,10 @@
     'name': 'constant.language.icinga2'
   }
   {
+    'match': '\\\<[\\w\\\.]+\\\>'
+    'name': 'string.quoted.double.icinga2'
+  }
+  {
     'match': '\\<\\=|\\>\\=|\\=\\=|\\<|\\>|\\!\\='
     'name': 'keyword.operator.comparison.icinga2'
   }
@@ -141,10 +145,6 @@
   {
     'match': 'import'
     'name': 'keyword.control.import.include.icinga2'
-  }
-  {
-    'match': '\\\<\[\\w\\\.\]+?\\\>'
-    'name': 'string.quoted.double.icinga2'
   }
   {
     'match': '\\{|\\('
