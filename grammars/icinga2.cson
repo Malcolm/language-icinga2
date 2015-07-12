@@ -127,7 +127,7 @@
     'name': 'storage.type.function.icinga2'
   }
   {
-    'match': '\\b(const|import|include|include_recursive|var|function|return|to|use|locals|globals|this)\\b'
+    'match': '\\b(const|import|include|include_recursive|var|function|return|to|use|locals|globals|this|library)\\b'
     'name': 'keyword.control.icinga2'
   }
   {
