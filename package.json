@@ -1,6 +1,6 @@
 {
   "name": "language-icinga2",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Malcolm <i.am.malcolm@gmail.com>",
   "description": "Icinga2 syntax highlighting",
   "repository": "https://github.com/Malcolm/language-icinga2",
