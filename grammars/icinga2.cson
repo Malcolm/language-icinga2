@@ -120,10 +120,8 @@
     'match': '\\='
     'name': 'keyword.operator.assignment.icinga2'
   }
-  #TODO Fix ignore case
-  #TODO Break these out to proper assignment
   {
-    'match': '(?i)\\b(object|apply|template)\\b[ \t]+\\b(hostgroup|host|servicegroup|service|usergroup|user|checkcommand|notificationcommand|eventcommand|notification|timeperiod|scheduleddowntime|dependency|perfdatawriter|graphitewriter|idomysqlconnection|idopgsqlconnection|livestatuslistener|statusdatawriter|externalcommandlistener|compatlogger|checkresultreader|checkcomponent|notificationcomponent|filelogger|sysloglogger|icingastatuswriter|apilistener|endpoint|zone)\\b'
+    'match': '\\b(object|apply|template)\\b[ \t]+\\b(HostGroup|Host|ServiceGroup|Service|UserGroup|User|CheckCommand|CheckerComponent|NotificationCommand|EventCommand|Notification|TimePeriod|ScheduledDowntime|Dependency|PerfdataWriter|GraphiteWriter|IdoMySqlConnection|IdoPgSqlConnection|LiveStatusListener|StatusDataWriter|ExternalCommandListener|CompatLogger|CheckResultReader|NotificationComponent|FileLogger|SyslogLogger|IcingaStatusWriter|ApiListener|Endpoint|Zone|GelfWriter|OpenTsdbWriter)\\b'
     'name': 'storage.type.function.icinga2'
   }
   {
