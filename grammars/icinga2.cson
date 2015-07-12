@@ -4,8 +4,6 @@
   'conf'
 ]
 'patterns': [
-  #TODO: object methods
-  #TODO: object methods: .to_string .find .contains  .len .lower .upper .replace .split .substr .add .clear .clone .contains .len .remove .set .remove .sort .join .clone .call .callv
   #TODO: Check documentation tosee if anything was missed
   {
     'begin': '/\\*'
@@ -48,6 +46,10 @@
         'name': 'comment.line.number-sign.icinga2'
       }
     ]
+  }
+  {
+    'match': '\\\.(to_string|find|contains|len|lower|upper|replace|split|substr|add|clear|clone|contains|len|remove|set|remove|sort|join|clone|call|callv)'
+    'name': 'storage.type.method.icinga2'
   }
   {
     'match': '\\b(get_host_group|get_service_group|get_user_group|get_time_period|get_host|get_service|get_user|get_check_command|get_event_command|get_notification_command|macro|number|bool|random|log|typeof|get_time|exit|regex|match|len|union|intersection|keys|string)\\b'
