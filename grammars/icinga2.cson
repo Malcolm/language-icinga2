@@ -48,7 +48,7 @@
     ]
   }
   {
-    'match': '\\\.(to_string|find|contains|len|lower|upper|replace|split|substr|add|clear|clone|contains|len|remove|set|remove|sort|join|clone|call|callv)'
+    'match': '\\\.(to_string|find|contains|len|lower|upper|replace|split|substr|add|clear|clone|contains|len|remove|set|remove|sort|join|clone|call|callv)\\b'
     'name': 'storage.type.method.icinga2'
   }
   {
