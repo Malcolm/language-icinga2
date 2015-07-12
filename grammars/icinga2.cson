@@ -92,7 +92,7 @@
     'name': 'keyword.operator.arithmetic.icinga2'
   }
   {
-    'match': 'in|\\|\\||&&|\\!'
+    'match': '\\b(in|\\|\\||&&|\\!)\\b'
     'name': 'keyword.operator.logical.icinga2'
   }
   {
