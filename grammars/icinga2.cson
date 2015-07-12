@@ -65,11 +65,11 @@
     ]
   }
   {
-    'match': '\\\.(to_string|find|contains|len|lower|upper|replace|split|substr|add|clear|clone|contains|len|remove|set|remove|sort|join|clone|call|callv)\\b'
+    'match': '\\\.(to_string|find|contains|len|lower|upper|replace|split|substr|add|clear|clone|contains|remove|set|sort|join|call|callv)\\b'
     'name': 'storage.type.method.icinga2'
   }
   {
-    'match': '\\b(get_host_group|get_service_group|get_user_group|get_time_period|get_host|get_service|get_user|get_check_command|get_event_command|get_notification_command|macro|number|bool|random|log|typeof|get_time|exit|regex|match|len|union|intersection|keys|string)\\b'
+    'match': '\\b(get_host_group|get_service_group|get_user_group|get_time_period|get_host|get_service|get_user|get_check_command|get_object|get_objects|get_event_command|get_notification_command|dirname|basename|parse_performance_data|macro|number|bool|random|log|typeof|get_time|exit|regex|match|len|union|intersection|keys|string)\\b'
     'name': 'support.class.builtin.icinga2'
   }
   {
