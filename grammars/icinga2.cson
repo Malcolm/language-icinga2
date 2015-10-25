@@ -65,15 +65,15 @@
     ]
   }
   {
-    'match': '\\\.(to_string|find|contains|len|lower|upper|replace|split|substr|add|clear|clone|contains|remove|set|sort|join|call|callv)\\b'
+    'match': '\\\.(to_string|find|contains|len|lower|upper|replace|split|substr|add|clear|clone|remove|set|sort|join|call|callv|reverse|shallow_clone|keys|get)\\b'
     'name': 'storage.type.method.icinga2'
   }
   {
-    'match': '\\b(get_host_group|get_service_group|get_user_group|get_time_period|get_host|get_service|get_user|get_check_command|get_object|get_objects|get_event_command|get_notification_command|dirname|basename|parse_performance_data|macro|number|bool|random|log|typeof|get_time|exit|regex|match|len|union|intersection|keys|string)\\b'
+    'match': '\\b(get_host_group|get_service_group|get_user_group|get_time_period|get_host|get_service|get_user|get_check_command|get_object|get_objects|get_event_command|get_notification_command|dirname|basename|parse_performance_data|macro|number|bool|random|log|typeof|get_time|exit|regex|match|len|union|intersection|keys|string|cidr_match|parse_performance_data|dirname|basename|escape_shell_arg|escape_shell_cmd|escape_create_process_arg)\\b'
     'name': 'support.class.builtin.icinga2'
   }
   {
-    'match': '\\b(PrefixDir|SysconfDir|ZonesDir|LocalStateDir|RunDir|PkgDataDir|StatePath|ObjectsPath|PidPath|NodeName|ApplicationType|EnableNotifications|EnableEventHandlers|EnableFlapping|EnableHostChecks|EnableServiceChecks|EnablePerfdata|UseVfork|RunAsUser|RunAsGroup|PluginDir|Problem|Recovery|OK|Warning|Critical|Unknown|Acknowledgement|Custom|FlappingStart|FlappingEnd|DowntimeStart|DowntimeEnd|DowntimeRemoved|Up|Down)\\b'
+    'match': '\\b(PrefixDir|SysconfDir|ZonesDir|LocalStateDir|RunDir|PkgDataDir|StatePath|ObjectsPath|PidPath|NodeName|ApplicationType|EnableNotifications|EnableEventHandlers|EnableFlapping|EnableHostChecks|EnableServiceChecks|EnablePerfdata|UseVfork|RunAsUser|RunAsGroup|PluginDir|Problem|Recovery|OK|Warning|Critical|Unknown|Acknowledgement|Custom|FlappingStart|FlappingEnd|DowntimeStart|DowntimeEnd|DowntimeRemoved|Up|Down|Number|String|Boolean|Array|Dictionary|Value|Object|ConfigObject|Command|CheckResult|Checkable|CustomVarObject|DbConnection|Type|PerfdataValue|Comment|Downtime|Logger|Application)\\b'
     'name': 'support.constant.std.icinga2'
   }
   {
@@ -113,7 +113,7 @@
     'name': 'keyword.operator.arithmetic.icinga2'
   }
   {
-    'match': '\\b(in|\\|\\||&&|\\!)\\b'
+    'match': '\\b(\\|\\||&&|\\!)\\b'
     'name': 'keyword.operator.logical.icinga2'
   }
   {
@@ -121,15 +121,29 @@
     'name': 'keyword.operator.assignment.icinga2'
   }
   {
-    'match': '\\b(object|apply|template)\\b[ \t]+\\b(HostGroup|Host|ServiceGroup|Service|UserGroup|User|CheckCommand|CheckerComponent|NotificationCommand|EventCommand|Notification|TimePeriod|ScheduledDowntime|Dependency|PerfdataWriter|GraphiteWriter|IdoMySqlConnection|IdoPgSqlConnection|LiveStatusListener|StatusDataWriter|ExternalCommandListener|CompatLogger|CheckResultReader|NotificationComponent|FileLogger|SyslogLogger|IcingaStatusWriter|ApiListener|Endpoint|Zone|GelfWriter|OpenTsdbWriter)\\b'
+    'captures':
+      1:
+        'name': 'storage.type.function.icinga2'
+      2:
+        'name': 'support.constant.parser-token.icinga2'
+      3:
+        'name': 'string.quoted.double.icinga2'
+      4:
+        'name': 'keyword.control.icinga2'
+      5:
+        'name': 'support.constant.parser-token.icinga2',
+    'match': '(apply)[\\s]([^\\s]*)[\\s]([\'"][^\\s]*[\'"])[\\s](to)[\\s]([^\\s]*)'
+  }
+  {
+    'match': '\\b(object|apply|template)\\b[ \t]+\\b(HostGroup|Host|ServiceGroup|Service|UserGroup|User|CheckCommand|CheckerComponent|NotificationCommand|EventCommand|Notification|TimePeriod|ScheduledDowntime|Dependency|PerfdataWriter|GraphiteWriter|IdoMySqlConnection|IdoPgSqlConnection|LiveStatusListener|StatusDataWriter|ExternalCommandListener|CompatLogger|CheckResultReader|NotificationComponent|FileLogger|SyslogLogger|IcingaStatusWriter|ApiListener|Endpoint|Zone|GelfWriter|OpenTsdbWriter|IcingaApplication|ApiUser)\\b'
     'name': 'storage.type.function.icinga2'
   }
   {
-    'match': '\\b(const|import|include|include_recursive|var|function|return|to|use|locals|globals|this|library)\\b'
+    'match': '\\b(const|import|include|include_recursive|var|function|return|in|to|use|locals|globals|this|library)\\b'
     'name': 'keyword.control.icinga2'
   }
   {
-    'match': '\\b(accept_commands|accept_config|action_url|address|address6|arguments|author|bind_host|bind_port|ca_path|categories|cert_path|check_command|check_interval|check_period|child_host_name|child_service_name|cleanup|command|command_endpoint|command_path|comment|compat_log_path|crl_path|database|disable_checks|disable_notifications|display_name|duration|email|enable_active_checks|enable_event_handler|enable_flapping|enable_ha|enable_notifications|enable_passive_checks|enable_perfdata|endpoints|env|event_command|failover_timeout|fixed|flapping_threshold|groups|host|host_format_template|host_name|host_name_template|host_perfdata_path|host_temp_path|icon_image|icon_image_alt|instance_description|instance_name|interval|key_path|log_dir|log_duration|max_check_attempts|methods|name|notes|notes_url|objects_path|pager|parent|parent_host_name|parent_service_name|password|path|period|port|ranges|retry_interval|rotation_interval|rotation_method|service|service_format_template|service_name|service_name_template|service_perfdata_path|service_temp_path|severity|socket_path|socket_type|spool_dir|states|status_path|table_prefix|timeout|times|types|update_interval|user|user_groups|users|volatile|zone)\\b'
+    'match': '\\b(accept_commands|accept_config|action_url|address|address6|arguments|author|bind_host|bind_port|ca_path|categories|cert_path|check_command|check_interval|check_period|child_host_name|child_service_name|cleanup|command|command_endpoint|command_path|comment|compat_log_path|crl_path|database|disable_checks|disable_notifications|display_name|duration|email|enable_active_checks|enable_event_handler|enable_flapping|enable_ha|enable_notifications|enable_passive_checks|enable_perfdata|endpoints|env|event_command|failover_timeout|fixed|flapping_threshold|groups|host|host_format_template|host_name|host_name_template|host_perfdata_path|host_temp_path|icon_image|icon_image_alt|instance_description|instance_name|interval|key_path|log_dir|log_duration|max_check_attempts|methods|name|notes|notes_url|objects_path|pager|parent|parent_host_name|parent_service_name|password|path|period|port|ranges|retry_interval|rotation_interval|rotation_method|service|service_format_template|service_name|service_name_template|service_perfdata_path|service_temp_path|severity|socket_path|socket_type|spool_dir|states|status_path|table_prefix|timeout|times|types|update_interval|user|user_groups|users|volatile|zone|client_cn|enable_event_handlers|enable_host_checks|enable_service_checks|permissions)\\b'
     'name': 'support.class.builtin.icinga2'
   }
   {
