@@ -1,8 +1,8 @@
-## 0.3.0 - Icinga 2.4 release update -- Prior to 2.4 release and Atom build
+## 0.3.0 - Icinga 2.4 release update
 * Add in some new tokens for the new release
 * Fix the "apply ITEM 'item-name' to OBJECT" highlighting
 * Note: some tokens have been removed from upstream but have been left here for
-  compatibility and the possibility they were removed by accident
+  compatibility
 
 ## 0.2.0 - Units and Methods
 * Add numeric/time units
