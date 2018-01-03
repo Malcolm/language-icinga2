@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.1
+* Push failure
+
 ## 0.4.0
 * @lazyfrosch was exceptionally kind and provided some imporvements!
 
