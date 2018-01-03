@@ -183,6 +183,10 @@
     'name': 'string.quoted.double.icinga2'
     'patterns': [
       {
+        'match': '\\\\.'
+        'name': 'constant.character.escape.icinga2'
+      }
+      {
         'match': '\\$\[\\w\\\.\]+?\\\$'
         'name': 'punctuation.definition.variable.icinga2'
       }
