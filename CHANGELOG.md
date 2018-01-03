@@ -1,3 +1,8 @@
+# Changelog
+
+## 0.4.0
+* @lazyfrosch was exceptionally kind and provided some imporvements!
+
 ## 0.3.0 - Icinga 2.4 release update
 * Add in some new tokens for the new release
 * Fix the "apply ITEM 'item-name' to OBJECT" highlighting
