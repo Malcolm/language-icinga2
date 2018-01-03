@@ -188,22 +188,4 @@
       }
     ]
   }
-  {
-    'begin': '\''
-    'beginCaptures':
-      '0':
-        'name': 'punctuation.definition.string.begin.icinga2'
-    'contentName': 'meta.string-contents.quoted.single.icinga2'
-    'end': '\''
-    'endCaptures':
-      '0':
-        'name': 'punctuation.definition.string.end.icinga2'
-    'name': 'string.quoted.double.icinga2'
-    'patterns': [
-      {
-        'match': '\\$\[\\w\\\.\]+?\\\$'
-        'name': 'punctuation.definition.variable.icinga2'
-      }
-    ]
-  }
 ]
